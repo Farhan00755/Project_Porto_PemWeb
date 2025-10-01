@@ -1,0 +1,273 @@
+/* --- GAYA DASAR --- */
+
+body {
+    background-color: blanchedalmond;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: black; 
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin: 25px 0;
+}
+
+/* --- NAVBAR DAN MENU --- */
+
+.navbar {
+    display: flex;
+    /* Ubah dari 100px agar lebih fleksibel */
+    height: auto; 
+    /* Mengubah ke space-between untuk memisahkan judul dan menu */
+    justify-content: space-between; 
+    align-items: center;
+    background-color: aliceblue;
+    padding: 10px 50px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    flex-wrap: wrap; /* Penting untuk responsivitas */
+}
+
+/* Styling untuk ul di dalam navbar */
+.navbar ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    /* Pastikan menu link berada di kanan ketika di desktop */
+    margin-left: auto; 
+}
+
+.judul {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    /* Hapus/Koreksi margin-right: auto agar tidak bertentangan dengan space-between. */
+    /* styles1.css menghapus, contact.css ada margin-right: auto, 
+       saya hapus agar konsisten dengan space-between pada .navbar */
+    /* margin-right: auto; */
+}
+
+li{
+    list-style-type: none;
+    padding: 15px;
+    margin: 5px;
+    /* Warna yang konsisten. Saya ambil dari contact.css (black) karena lebih umum 
+       daripada whitesmoke di styles1.css yang sulit dibaca di background aliceblue */
+    color: black; 
+    font-size: 25px;
+}
+
+li:hover{
+    background-color: blanchedalmond;
+    transition: .3s ease-in-out;
+    transition-delay: .01s;
+    border-radius: 12px;
+}
+
+/* Tombol Hamburger Menu (Disembunyikan di desktop) */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+/* --- CONTAINER DAN ISINYA --- */
+
+.container {
+    /* Mengambil max-width 1000px dari styles1.css */
+    max-width: 1000px; 
+    margin: 20px auto; 
+    /* Mengambil padding 5% dari styles1.css (lebih besar/fleksibel) */
+    padding: 5%;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+.contact-info{
+    /* Kelas ini hanya ada di contact.css */
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto 20px auto;
+    /* Mengambil width 250px dari styles1.css (lebih besar) */
+    width: 250px; 
+    border-radius: 10px;
+    /* Menambahkan properti responsif dari styles1.css */
+    max-width: 100%; 
+    height: auto;
+}
+
+.description {
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* PENAMBAHAN CSS UNTUK MEMBUAT SEJAJAR START */
+.profile-details {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 10px 30px; 
+    text-align: left; 
+    margin: 20px 0;
+}
+/* PENAMBAHAN CSS END */
+
+.biodata {
+    text-align: left;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --- TABEL --- */
+
+/* Table Responsive Wrapper - Hanya ada di styles1.css */
+.table-responsive {
+    overflow-x: auto; 
+    width: 100%;
+    margin-top: 15px; 
+    margin-bottom: 15px; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Mengambil properti yang lebih lengkap dari styles1.css */
+    table-layout: fixed; 
+    word-wrap: break-word; /* Dari contact.css, ditambahkan ke sini */
+}
+
+th, td {
+    border: 1px solid #a0a0a0;
+    padding: 10px;
+    text-align: center;
+    /* Biarkan min-width: unset dihilangkan, karena sudah ada table-layout: fixed */
+    word-wrap: break-word; 
+}
+
+th {
+    background-color: #96D4D4;
+    vertical-align: middle; /* Dari styles1.css */
+}
+
+td {
+    vertical-align: middle; /* Dari styles1.css */
+}
+
+td:hover {
+    background-color: #f1f1f1;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVITAS) --- */
+
+/* Aturan untuk layar tablet dan perangkat yang lebih besar (Max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px; 
+    }
+    
+    .navbar ul {
+        margin-left: auto;
+    }
+
+    .judul {
+        font-size: 22px;
+    }
+
+    li {
+        font-size: 20px;
+        padding: 10px;
+        margin: 3px;
+    }
+
+    .container {
+        margin: 10px;
+        padding: 20px;
+        /* Padding 5% dari desktop akan terlalu besar, padding 20px lebih baik */
+        padding: 20px; 
+    }
+}
+
+/* Aturan untuk layar mobile (Max-width: 576px) 📱 */
+@media screen and (max-width: 576px) {
+    .navbar {
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center;
+        padding: 10px 15px; 
+        height: auto;
+    }
+
+    /* Tampilkan tombol hamburger */
+    .menu-toggle {
+        display: block; 
+    }
+    
+    /* Posisikan link menu di bawah */
+    #nav-links {
+        display: none; 
+        flex-direction: column; 
+        width: 100%;
+        text-align: center;
+        margin-left: 0; 
+        order: 10; 
+        background-color: #f0f8ff; 
+    }
+
+    /* Tampilkan menu ketika class 'active' ditambahkan oleh JS */
+    #nav-links.active {
+        display: flex;
+    }
+
+    .judul {
+        margin: 0; 
+    }
+    
+    li {
+        width: 100%; 
+        margin: 0;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .container {
+        padding: 15px;
+    }
+    
+    /* Mengambil ukuran gambar yang lebih kecil dari contact.css/styles1.css di mobile */
+    img {
+        width: 150px; 
+    }
+    
+    th, td {
+        padding: 6px; 
+        min-width: unset; 
+    }
+    
+    /* Perbaikan khusus untuk tabel di mobile */
+    table {
+        /* Hilangkan table-layout: fixed agar kolom bisa menyempit */
+        table-layout: auto; 
+    }
+}
